@@ -70,9 +70,9 @@ GEM
       polyamorous (~> 0.5.0)
     mime-types (1.22)
     multi_json (1.7.2)
+    mysql2 (0.3.11)
     nokogiri (1.5.6)
     orm_adapter (0.4.0)
-    pg (0.14.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -143,8 +143,8 @@ DEPENDENCIES
   json
   kaminari
   meta_search (>= 1.1.0.pre)
+  mysql2
   nokogiri
-  pg
   rack-cache
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
