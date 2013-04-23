@@ -1,0 +1,9 @@
+<div class="f_title span11">
+	<span class="title">Kết quả tìm kiếm cho <span class="f_top_view">"<%= params[:q]%>"</span></span>
+</div>
+<div class="detail">
+	<%= render :partial => "/pages/new_movies_updated", :object => @movies%>
+	<div class="mmid">
+		<%= will_paginate @movies, :param_name => "trang"%>
+	</div>
+</div>

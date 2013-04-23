@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/movies
+END
+detail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/movies/detail.html.erb
+END
+trailer.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/!svn/ver/15746/Jolly_Movie/trunk/app/views/movies/trailer.html.erb
+END

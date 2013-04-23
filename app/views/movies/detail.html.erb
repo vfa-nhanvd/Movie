@@ -1,0 +1,83 @@
+<div class="f_title span11">
+	<span class="title">
+		Thông tin phim
+		<span class="fname_s"><%= @movie.name%></span>
+	</span>
+</div>
+<div class="detail f_middle">
+	<div class="m_img">
+		<%= image_tag(@movie.image.thumb("220x320#").url) if @movie.image%>
+	</div>
+	<div class="m_info">
+		<span class="m_name"><%= @movie.name%></span>
+		<br />
+		<span class="m_original_name"><%= @movie.original_name%></span>
+		<br />
+		<span>Đạo diễn:
+			<% stt = 0%>
+			<% @movie.directors.each do |md| %>
+			<% stt += 1%>
+			<%= link_to md.name, director_detail_path(md.id, md.permalink)%><% if stt < @movie.directors.count%>,<% end %>
+			<% end %>
+		</span>
+		<br />
+		<span class="mi_actors">Diễn viên:
+			<% stt = 0%>
+			<% @movie.actors.each do |ma| %>
+			<% stt += 1%>
+			<%= link_to ma.name, actor_detail_path(ma.id, ma.permalink)%><% if stt < @movie.actors.count%><span>,</span><% end %><% if stt == @movie.actors.count%><span>...</span><% end %>
+			<% end %>
+		</span>
+		<br />
+		<span>Thể loại:
+			<% stt = 0%>
+			<% @movie.categories.each do |mc| %>
+			<% stt += 1%>
+			<%= link_to mc.name, category_detail_path(mc.id, mc.permalink)%><% if stt <  @movie.categories.count.to_i%>,<% end %>
+			<% end %>
+		</span>
+		<br />
+		<span>
+			Độ dài:
+			<span class="a1_other"><%= @movie.length%></span>
+		</span>
+		<br />
+		<span>
+			Quốc gia:
+			<span class="a1_other"><%= @movie.country.name if @movie.country%></span>
+		</span>
+		<br />
+		<span>
+			Năm sản xuất:
+			<span class="a1_other"><%= @movie.release_date.year if @movie.release_date%></span>
+		</span>
+		<br />
+		<span>
+			Ngày công chiếu:
+			<span class="a1_other"><%= @movie.premiere_date%></span>
+		</span>
+		<br />
+		<span>
+			Hãng sản xuất:
+			<span class="a1_other"><%= @movie.movie_maker.name if @movie.movie_maker%></span>
+		</span>
+		<br />
+		<span>
+			Phân loại:
+			<span class="a1_other"><%= Movie::Kind[@movie.kind]%></span>
+		</span>
+		<br />
+		<span>
+			Lượt xem:
+			<span class="a1_other"><%= @movie.plays%></span>
+		</span>
+		<br />
+	</div>
+	<div class="action_view span5">
+			<%= link_to image_tag("#{asset_path('view_online.png')}"), episode_detail_path(@e1.id, @e1.permalink)%>
+			<%= link_to image_tag("#{asset_path('view_trailer.png')}"), movie_trailer_path(@movie.id, @movie.permalink)%>
+	</div>
+	<div class="minfo_quote">
+		<%= @movie.info.html_safe%>
+	</div>
+</div>

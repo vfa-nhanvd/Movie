@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search
+END
+top_review_movie.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/top_review_movie.html.erb
+END
+new_m.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/new_m.html.erb
+END
+m_has_shown.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/m_has_shown.html.erb
+END
+most_review.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/most_review.html.erb
+END
+main_search.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/main_search.html.erb
+END
+m_tv.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/m_tv.html.erb
+END
+top_review_tv.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/top_review_tv.html.erb
+END
+m_hot.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/m_hot.html.erb
+END
+tv_new_updated.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/tv_new_updated.html.erb
+END
+ms_new_updated.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/search/ms_new_updated.html.erb
+END

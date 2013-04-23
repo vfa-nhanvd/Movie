@@ -1,0 +1,33 @@
+<div class="bs-docs-example">
+ <form class="form-search i_form_search">
+   <input type="text" class="input-medium search-query i_detail_backend_s">
+   <button type="submit" class="btn">Search</button>
+ </form>
+ <div class="new_new">
+   <%= link_to "Thêm mới", new_admin_category_path, :class => "btn btn-success"%>
+ </div>
+ <table class="table">
+  <thead>
+   <tr>
+    <th>#</th>
+    <th>Tên thể loại</th>
+    <th>Hot</th>
+    <th>Action</th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @admin_categories.each do |ac|%>
+   <tr class="<%= ac.id % 2 == 0 ? 'success': ''%>">
+    <td><%= ac.id%></td>
+    <td><%= ac.name%></td>
+    <td><%= ac.hot%></td>
+    <td>
+     <%= link_to image_tag("#{asset_path('action_view.png')}"), admin_category_path(ac), :title => "Chi tiết thể loại"%>
+     <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_category_path(ac), :title => "Sửa"%>
+     <%= link_to image_tag("#{asset_path('action_delete.png')}"), admin_category_path(ac), :confirm => "Bạn muốn xóa thể loại này?!", :method => :delete, :title => "Xóa"%>
+    </td>
+   </tr>
+   <% end %>
+  </tbody>
+ </table>
+</div>

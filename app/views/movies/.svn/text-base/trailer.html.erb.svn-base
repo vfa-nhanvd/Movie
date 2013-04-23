@@ -1,0 +1,53 @@
+<div class="f_title span11">
+	<span class="title">
+		<span class="fname_s"><%= @movie.name%></span> <span class="foriginal_name_s">(<%=@movie.original_name%>)</span>
+	</span>
+</div>
+<div class="vvview">
+	<div class="movie_frame">
+		<% if @movie.id_media != nil && @movie.id_media != ""%>
+		<iframe type="text/html" width="620" height="385" src="http://www.youtube.com/embed/<%=@movie.id_media if @movie.id_media%>?autoplay=1&showinfo=0&modestbranding=1&rel=0" frameborder="0">
+		</iframe>
+		<% else %>
+		<object width="620" height="385"><param name="movie" value="<%= @movie.link_trailer%>"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="<%= @movie.link_trailer%>" type="application/x-shockwave-flash" allowscriptaccess="always" autoplay="true" allowfullscreen="true" width="620" height="385"></object>
+		<% end %>
+	</div>
+	<div class="addthis_position">
+		<!-- AddThis Button BEGIN -->
+		<div class="addthis_toolbox addthis_default_style" style="margin:13px 0px 0px 8px">
+			<a class="addthis_button_preferred_1"></a>
+			<a class="addthis_button_preferred_2"></a>
+			<a class="addthis_button_google_plusone" g:plusone:size="small"></a>
+			<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+			<a class="addthis_button_compact"></a>
+			<a class="addthis_counter addthis_bubble_style"></a>
+		</div>
+		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ed5f69f7635dd96"></script>
+		<!-- AddThis Button END -->
+	</div>
+	<div class="server_frame">
+		<ul>
+			<li><span class="server_name">+ Server Youtube: </span>
+				<span class="e_stt">
+					<%= link_to "Trailer", movie_trailer_path(@movie.id, @movie.permalink)%>
+				</span>
+			</li>
+		</ul>
+	</div>
+	<div class="inf_f_e">
+		<div class="f_title inf_e">
+			<span class="title inf_e_t"> Thông tin phim
+			</span>
+		</div>
+		<span class="info_detail"><%=@movie.info.html_safe if @movie.info%></span>
+	</div>
+	<div class="some_other_movie">
+		<div class="f_title span11">
+			<span class="title inf_e_t"> Bạn đã xem chưa?
+			</span>
+		</div>
+		<div class="movie_random">
+			<%= render :partial => "/pages/new_movies_updated", :object => @movie_random%>
+		</div>
+	</div>
+</div>

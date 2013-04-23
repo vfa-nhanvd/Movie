@@ -1,0 +1,31 @@
+<div class="bs-docs-example">
+ <form class="form-search i_form_search">
+   <input type="text" class="input-medium search-query i_detail_backend_s">
+   <button type="submit" class="btn">Search</button>
+ </form>
+ <div class="new_new">
+   <%= link_to "Thêm mới", new_admin_movie_maker_path, :class => "btn btn-success"%>
+ </div>
+ <table class="table">
+  <thead>
+   <tr>
+    <th>#</th>
+    <th>Tên hãng sản xuất</th>
+    <th>Action</th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @admin_movie_makers.each do |amm|%>
+   <tr class="<%= amm.id % 2 == 0 ? 'success': ''%>">
+    <td><%= amm.id%></td>
+    <td><%= amm.name%></td>
+    <td>
+     <%= link_to image_tag("#{asset_path('action_view.png')}"), admin_movie_maker_path(amm), :title => "Chi tiết hãng sản xuất"%>
+     <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_movie_maker_path(amm), :title => "Sửa"%>
+     <%= link_to image_tag("#{asset_path('action_delete.png')}"), admin_movie_maker_path(amm), :confirm => "Bạn muốn xóa hãng sản xuất này?!", :method => :delete, :title => "Xóa"%>
+    </td>
+   </tr>
+   <% end %>
+  </tbody>
+ </table>
+</div>

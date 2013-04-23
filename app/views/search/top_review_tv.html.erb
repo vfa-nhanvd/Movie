@@ -1,0 +1,9 @@
+<div class="f_title span11">
+	<span class="title"><span class="f_top_view">Top phim bộ được xem nhiều</span></span>
+</div>
+<div class="detail">
+	<%= render :partial => "/pages/new_movies_updated", :object => @top_tv%>
+	<div class="mmid">
+		<%= paginate @top_tv%>
+	</div>
+</div>

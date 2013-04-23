@@ -1,0 +1,23 @@
+<div class="bs-docs-example">
+ <div class="movie_detail_s_n">
+  <table border="0" cellspacing="0" cellpadding="0">
+   <tbody>
+    <tr>
+     <th>Tên thể loại:</th>
+     <td><%= @admin_category.name%></td>
+    </tr>
+    <tr>
+     <th>Hot:</th>
+     <td><%= @admin_category.hot%></td>
+    </tr>
+    <tr>
+     <td></td>
+     <td>
+      <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_category_path(@admin_category), :title => "Sửa"%> | 
+      <%= link_to image_tag("#{asset_path('action_back.png')}"), admin_categories_path, :title => "Về trang chủ"%>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>

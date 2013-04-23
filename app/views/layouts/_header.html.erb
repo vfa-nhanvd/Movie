@@ -1,0 +1,55 @@
+<div class="topbar" data-scrollspy="scrollspy">
+ <div class="topbar-inner">
+  <div class="container span17">
+   <a class="brand" href="/">Rạp Phim</a>
+   <ul class="nav">
+    <li class="span1"></li>
+    <li class="span7" style="margin-left:18px">
+     <%= form_tag main_search_path, :method => :get do %>
+        <%= text_field_tag :q, params[:q], :placeholder => "Nhập tên phim...", :class => "span5"%>
+        <%= submit_tag "Tìm", :name => nil %>
+        <% end %>
+    </li>
+   </ul>
+   <ul class="nav ulogin">
+    <li>
+     <%= link_to "Đăng nhập", "javascript:"%>
+    </li>
+    <li>
+     <%= link_to "Đăng ký", "javascript:"%>
+    </li>
+   </ul>
+  </div>
+ </div>
+</div>
+<div id="fheader" class="span17">
+ <div class="primary-nav">
+  <ul>
+   <li class="primary-nav-home">
+    <%= link_to_unless_current("Trang chủ", "/") do
+             link_to("Trang chủ", "/", :class => "fhome_a")
+          end %>
+   </li>
+   <li class="primary-nav-new-movies">
+    <%= link_to_unless_current("Phim mới", new_m_path) do
+     link_to("Phim mới", new_m_path, :class => "fmovie_a")
+    end %>
+   </li>
+   <li class="primary-nav-most-review">
+    <%= link_to_unless_current("Xem nhiều", most_review_path) do
+     link_to("Xem nhiều", most_review_path, :class => "fmr_a")
+    end %>
+   </li>
+   <li class="primary-nav-showing">
+    <%= link_to_unless_current("Đang Chiếu Rạp", m_has_shown_path) do
+     link_to("Đang Chiếu Rạp", m_has_shown_path, :class => "fshowing_a")
+     end %>
+   </li>
+   <li class="primary-nav-tv">
+    <%= link_to_unless_current("Phim bộ", m_tv_path) do
+     link_to("Phim bộ", m_tv_path, :class => "ftv_a")
+    end %>
+   </li>
+  </ul>
+ </div>
+</div>

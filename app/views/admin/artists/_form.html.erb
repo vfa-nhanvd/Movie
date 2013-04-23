@@ -1,0 +1,47 @@
+<%= form_for([:admin, @admin_artist], :html => {:class => "bs-docs-example form-horizontal nf_detail_backend"}) do |f| %>
+  <% if @admin_artist.errors.any? %>
+    <div class="control-group error">
+      <h2><%= pluralize(@admin_artist.errors.count, "error") %> prohibited this admin_movie from being saved:</h2>
+      <ul>
+      <% @admin_artist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="control-group">
+    <label class="control-label" for="input"><span class="s_validation">*</span>Tên nghệ sĩ</label>
+    <div class="controls">
+      <%= f.text_field :name %>
+      <span class="help-inline">Không được trống</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input">Tiểu sử</label>
+    <div class="controls">
+      <%= f.text_area :bio %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input">Phân loại</label>
+    <div class="controls">
+      <%= f.select :kind, Artist::Kind.invert %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input">Thuộc quốc gia</label>
+    <div class="controls">
+      <%= f.select :country_id, Country.all.map{|c| [c.name, c.id]}%>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="input">Hot</label>
+    <div class="controls">
+      <%= f.check_box :hot %>
+    </div>
+  </div>
+  <div class="form-actions">
+     <%= f.submit "Save", :class => "btn btn-primary" %>
+     <%= link_to "Cancel", admin_artist_path, :class => "btn" %>
+   </div>
+<% end %>

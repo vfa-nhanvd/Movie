@@ -1,0 +1,12 @@
+<div class="f_title span11">
+	<span class="title">
+		Tồng hợp phim thuộc thể loại
+		<span class="fname_s"><%= @category.name%></span>
+	</span>
+</div>
+<div class="detail">
+	<%= render :partial => "/pages/new_movies_updated", :object => @ca_movies%>
+	<div class="mmid">
+		<%= will_paginate @ca_movies, :param_name => "trang"%>
+	</div>
+</div>

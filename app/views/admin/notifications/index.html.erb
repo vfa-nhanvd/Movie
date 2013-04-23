@@ -1,0 +1,31 @@
+<div class="bs-docs-example">
+ <form class="form-search i_form_search">
+   <input type="text" class="input-medium search-query i_detail_backend_s">
+   <button type="submit" class="btn">Search</button>
+ </form>
+ <div class="new_new">
+   <%= link_to "Thêm mới", new_admin_notification_path, :class => "btn btn-success"%>
+ </div>
+ <table class="table">
+  <thead>
+   <tr>
+    <th>#</th>
+    <th>Nội dung</th>
+    <th>Action</th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @admin_notifications.each do |an|%>
+   <tr class="<%= an.id % 2 == 0 ? 'success': ''%>">
+    <td><%= an.id%></td>
+    <td><%= an.content.html_safe%></td>
+    <td>
+     <%= link_to image_tag("#{asset_path('action_view.png')}"), admin_notification_path(an), :title => "Chi tiết thông báo"%>
+     <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_notification_path(an), :title => "Sửa"%>
+     <%= link_to image_tag("#{asset_path('action_delete.png')}"), admin_notification_path(an), :confirm => "Bạn muốn xóa thông báo này?!", :method => :delete, :title => "Xóa"%>
+    </td>
+   </tr>
+   <% end %>
+  </tbody>
+ </table>
+</div>

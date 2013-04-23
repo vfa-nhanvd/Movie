@@ -1,0 +1,2 @@
+alert("Xin cám ơn vì đóng góp của bạn! Hệ thống sẽ cố gắng khắc phục lỗi trong thời gian sớm nhất!");
+$(".feedback").remove();

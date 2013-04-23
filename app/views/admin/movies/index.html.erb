@@ -1,0 +1,43 @@
+<div class="bs-docs-example">
+ <form class="form-search i_form_search">
+   <input type="text" class="input-medium search-query i_detail_backend_s">
+   <button type="submit" class="btn">Search</button>
+ </form>
+ <div class="new_new">
+   <%= link_to "Thêm mới", new_admin_movie_path, :class => "btn btn-success"%>
+ </div>
+ <table class="table">
+  <thead>
+   <tr>
+    <th>#</th>
+    <th>Tên Phim</th>
+    <th>Tên Gốc</th>
+    <th>Quốc Gia</th>
+    <th>Hãng Sản Xuất</th>
+    <th>Năm Phát Hành</th>
+    <th>Loại Phim</th>
+    <th>Hình</th>
+    <th>Action</th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @admin_movies.each do |am|%>
+    <tr class="<%= am.id % 2 == 0 ? 'success': ''%>">
+     <td><%= am.id%></td>
+     <td><%= link_to am.name, movie_detail_path(am.id, am.permalink), :title => "Xem trực tiếp thông tin phim", :target => "_blank"%></td>
+     <td><%= am.original_name%></td>
+     <td><%= am.country.name if am.country%></td>
+     <td><%= am.movie_maker.name if am.movie_maker%></td>
+     <td><%= am.release_date.year if am.release_date%></td>
+     <td><%= Movie::Kind[am.kind]%></td>
+     <td><%= image_tag(am.image.thumb("150x150#").url) if am.image%></td>
+     <td>
+      <%= link_to image_tag("#{asset_path('action_view.png')}"), admin_movie_path(am), :title => "Chi tiết phim"%>
+      <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_movie_path(am), :title => "Sửa"%>
+      <%= link_to image_tag("#{asset_path('action_delete.png')}"), admin_movie_path(am), :confirm => "Bạn muốn xóa phim này?!", :method => :delete, :title => "Xóa"%>
+     </td>
+    </tr>
+   <% end %>
+  </tbody>
+ </table>
+</div>

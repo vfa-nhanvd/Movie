@@ -1,0 +1,42 @@
+<div id="category_left">
+	<div class="f_title span3">
+		<span class="title">Thể loại</span>
+	</div>
+	<div class="detail">
+		<ul class="fcategory">
+			<% Category.all.each do |c|%>
+			<li>
+				<%= link_to c.name, category_detail_path(c.id, c.permalink)%>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div id="country_left">
+	<div class="f_title span3">
+		<span class="title">Quốc gia</span>
+	</div>
+	<div class="detail">
+		<ul class="fcountry">
+			<% Country.all.each do |c|%>
+			<li>
+				<%= link_to c.name, country_detail_path(c.id, c.permalink)%>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div id="actor_left">
+	<div class="f_title span3">
+		<span class="title">Diễn viên</span>
+	</div>
+	<div class="detail">
+		<ul class="fartist">
+			<% Artist.where(:hot => true, :kind => "1").all.each do |a|%>
+			<li>
+				<%= link_to a.name, actor_detail_path(a.id, a.permalink)%>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>

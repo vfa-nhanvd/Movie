@@ -1,0 +1,23 @@
+<div class="bs-docs-example">
+ <div class="movie_detail_s_n">
+  <table border="0" cellspacing="0" cellpadding="0">
+   <tbody>
+    <tr>
+     <th>Thông báo:</th>
+     <td><%= @admin_notification.content%></td>
+    </tr>
+    <tr>
+     <th>Hot:</th>
+     <td><%= @admin_notification.hot%></td>
+    </tr>
+    <tr>
+     <td></td>
+     <td>
+      <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_notification_path(@admin_notification), :title => "Sửa"%> | 
+      <%= link_to image_tag("#{asset_path('action_back.png')}"), admin_notifications_path, :title => "Về trang chủ"%>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>

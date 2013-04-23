@@ -1,0 +1,9 @@
+<div class="f_title span11">
+	<span class="title">Tổng hợp phim của đạo diễn <span class="fname_s"><%=@director.name%></span></span>
+</div>
+<div class="detail">
+	<%= render :partial => "/pages/new_movies_updated", :object => @d_movie%>
+	<div class="mmid">
+		<%= will_paginate @d_movie, :param_name => "trang"%>
+	</div>
+</div>

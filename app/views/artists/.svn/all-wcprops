@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/artists
+END
+director_detail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/artists/director_detail.html.erb
+END
+actor_detail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/!svn/ver/15644/Jolly_Movie/trunk/app/views/artists/actor_detail.html.erb
+END

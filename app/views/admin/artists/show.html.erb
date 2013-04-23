@@ -1,0 +1,35 @@
+<div class="bs-docs-example">
+ <div class="movie_detail_s_n">
+  <table border="0" cellspacing="0" cellpadding="0">
+   <tbody>
+    <tr>
+     <th>Tên nghệ sĩ:</th>
+     <td><%= @admin_artist.name%></td>
+    </tr>
+    <tr>
+     <th>Phân loại:</th>
+     <td><%= Artist::Kind[@admin_artist.kind]%></td>
+    </tr>
+    <tr>
+     <th>Hot:</th>
+     <td><%= @admin_artist.hot%></td>
+    </tr>
+    <tr>
+     <th>Thuộc quốc gia:</th>
+     <td><%= @admin_artist.country.name if @admin_artist.country%></td>
+    </tr>
+    <tr>
+     <th>Tiểu sử:</th>
+     <td><%= @admin_artist.bio.html_safe%></td>
+    </tr>
+    <tr>
+     <td></td>
+     <td>
+      <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_artist_path(@admin_artist), :title => "Sửa"%> | 
+      <%= link_to image_tag("#{asset_path('action_back.png')}"), admin_artists_path, :title => "Về trang chủ"%>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>

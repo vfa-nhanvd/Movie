@@ -1,0 +1,9 @@
+<div class="f_title span11">
+	<span class="title"><span class="f_top_view">Phim đang được chiếu rạp</span></span>
+</div>
+<div class="detail">
+	<%= render :partial => "/pages/new_movies_updated", :object => @m_has_shown%>
+	<div class="mmid">
+		<%= will_paginate @m_has_shown, :param_name => "trang"%>
+	</div>
+</div>

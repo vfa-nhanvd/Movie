@@ -1,0 +1,12 @@
+<div class="f_title span11">
+	<span class="title">
+		Tồng hợp phim thuộc quốc gia
+		<span class="fname_s"><%= @country.name%></span>
+	</span>
+</div>
+<div class="detail">
+	<%= render :partial => "/pages/new_movies_updated", :object => @co_movies%>
+	<div class="mmid">
+		<%= paginate @co_movies%>
+	</div>
+</div>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Rạp phim - Admin</title>
+  <%= stylesheet_link_tag "admin", "token-input-facebook" %>
+  <%= javascript_include_tag "admin", "jquery.tokeninput" %>
+  <%= csrf_meta_tags %>
+  <style>
+   .bs-docs-example:after {
+    content: "<%= @stay_in%>";
+   }
+  </style>
+  <script type="text/javascript">
+   tinyMCE.init({
+     mode: 'textareas',
+     theme: 'advanced'
+   });
+  </script>
+ </head>
+ <body screen_capture_injected="true">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+   <div class="navbar-inner">
+     <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="/admin" style="float: left;">Trang Admin</a>
+      <div class="nav-collapse collapse" style="float: left; margin-left: 50px; font-size: 15px;">
+       <ul class="nav">
+          <li <%=@a_movies%>><a href="<%=admin_movies_path%>">Phim</a></li>
+          <li <%=@a_episodes%>><a href="<%=admin_episodes_path%>">Tập Phim</a></li>
+          <li <%=@a_categories%>><a href="<%=admin_categories_path%>">Thể Loại</a></li>
+          <li <%=@a_artists%>><a href="<%=admin_artists_path%>">Nghệ Sĩ</a></li>
+          <li <%=@a_servers%>><a href="<%=admin_servers_path%>">Server Phim</a></li>
+          <li <%=@a_countries%>><a href="<%=admin_countries_path%>">Quốc Gia</a></li>
+          <li <%=@a_movie_makers%>><a href="<%=admin_movie_makers_path%>">Hãng Sản Xuất</a></li>
+          <li <%=@a_notifications%>><a href="<%=admin_notifications_path%>">Tạo Thông Báo</a></li>
+       </ul>
+     </div>
+     <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "brand", :style => "font-size: 17px;" %>
+    </div>
+   </div>
+  </div>
+  <header class="jumbotron subhead" id="overview">
+    <div class="container">
+      <h1>Rạp phim</h1>
+      <p class="lead">Chúc anh em một ngày làm việc vui vẻ!:D</p>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="span12 s2_middle">
+       <%= yield%>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

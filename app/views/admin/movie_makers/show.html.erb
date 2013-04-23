@@ -1,0 +1,19 @@
+<div class="bs-docs-example">
+ <div class="movie_detail_s_n">
+  <table border="0" cellspacing="0" cellpadding="0">
+   <tbody>
+    <tr>
+     <th>Tên hãng sản xuất:</th>
+     <td><%= @admin_movie_maker.name%></td>
+    </tr>
+    <tr>
+     <td></td>
+     <td>
+      <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_movie_maker_path(@admin_movie_maker), :title => "Sửa"%> | 
+      <%= link_to image_tag("#{asset_path('action_back.png')}"), admin_movie_makers_path, :title => "Về trang chủ"%>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="bs-docs-example">
+ <div class="movie_detail_s_n">
+  <table border="0" cellspacing="0" cellpadding="0">
+   <tbody>
+    <tr>
+     <th>Tên tập phim:</th>
+     <td><%= @admin_episode.name%> - <%= link_to "Xem trực tiếp", episode_detail_path(@admin_episode.id, @admin_episode.permalink), :target => "_blank"%></td>
+    </tr>
+    <tr>
+     <th>Thuộc phim:</th>
+     <td><%= link_to @admin_episode.movie.name, admin_movie_path(@admin_episode.movie), :target => "_blank" if @admin_episode.movie%></td>
+    </tr>
+    <tr>
+     <th>Thuộc server:</th>
+     <td><%= @admin_episode.server.name if @admin_episode.server%></td>
+    </tr>
+    <tr>
+     <th>Xem thử:</th>
+     <td>
+       <div class="movie_frame">
+       <% if @admin_episode.id_media != nil && @admin_episode.id_media != ""%>
+       <iframe type="text/html" width="620" height="385" src="http://www.youtube.com/embed/<%=@admin_episode.id_media if @admin_episode.id_media%>?autoplay=1&showinfo=0&modestbranding=1&rel=0" frameborder="0">
+       </iframe>
+       <% else %>
+       <object width="620" height="385"><param name="movie" value="<%= @admin_episode.link%>"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="<%= @admin_episode.link%>" type="application/x-shockwave-flash" allowscriptaccess="always" autoplay="true" allowfullscreen="true" width="620" height="385"></object>
+       <% end %>
+      </div>
+     </td>
+    </tr>
+    <tr>
+     <td></td>
+     <td>
+      <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_episode_path(@admin_episode), :title => "Sửa"%> | 
+      <%= link_to image_tag("#{asset_path('action_back.png')}"), admin_episodes_path, :title => "Về trang chủ"%>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>

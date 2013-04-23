@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<%= render :partial => "/layouts/head_tag"%>
+	<body>
+		<div id="fwrapper">
+			<%= render :partial => "/layouts/header"%>
+			<div id="fcontent" class="span17">
+				<div id="fmiddle" class="span11 f_middle">
+					<%= yield %>
+				</div>
+				<div id="fright" class="span6">
+					<%= render :partial => "/layouts/right"%>
+				</div>
+				<div id="footer" class="span17">
+					<span>Copyright © 2013 <%= link_to "X Vs Nik", "https://www.facebook.com/niick7", :target => "_blank"%>. All rights reserved.</span>
+				</div>	
+			</div>
+		</div>
+	</body>
+</html>

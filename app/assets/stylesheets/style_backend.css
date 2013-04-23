@@ -1,0 +1,46 @@
+.s12_middle {
+ margin: 17px;
+}
+.i_form_search {
+ margin-top: 20px;
+ float: left;
+}
+.i_detail_backend_s {
+ width: 250px;
+}
+.new_new {
+ float: right;
+ margin: 20px 52px;
+}
+.nf_detail_backend {
+ padding-top: 70px;
+}
+.s_validation {
+ color: red;
+ font-size: 15px;
+ margin-right: 5px;
+}
+.t_f_more_size {
+ min-width: 550px;
+}
+.movie_detail_s_n {
+ color: #5E6469;
+ text-align: left;
+ padding: 10px;
+}
+.movie_detail_s_n table {
+ width: 100%;
+}
+.movie_detail_s_n tr {
+ margin-bottom: 20px;
+ float: left;
+ width: 100%;
+}
+.movie_detail_s_n table th {
+ width: 15%;
+ float: left;
+ margin-right: 5%;
+}
+.movie_detail_s_n table td {
+ width: 78%;
+}

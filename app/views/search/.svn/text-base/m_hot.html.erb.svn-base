@@ -1,0 +1,9 @@
+<div class="f_title span11">
+	<span class="title"><span class="f_top_view">Danh sách phim hot</span></span>
+</div>
+<div class="detail">
+	<%= render :partial => "/pages/new_movies_updated", :object => @m_hot%>
+	<div class="mmid">
+		<%= will_paginate @m_hot, :param_name => "trang"%>
+	</div>
+</div>

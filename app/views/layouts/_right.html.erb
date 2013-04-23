@@ -1,0 +1,109 @@
+<div id="fnotice" class="span6">
+	<div class="f_title span6">
+		<span class="title">Thông báo</span>
+	</div>
+	<div class="detail notice_scroll">
+		<ul class="detail_m_fnotice">
+			<% unless @notifications.blank?%>
+				<% @notifications.each do |e|%>
+				<li>
+					<%= truncate_html(e.content.html_safe, :length => 200, :separation => "") if e.content%> <%= image_tag("#{asset_path('hot_icon.gif')}") if e.hot == true%>
+				</li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div id="fcategory_r" class="fff" style="border-right: 2px solid #CCC;">
+	<div class="f_title fff">
+		<span class="title">Thể loại</span>
+	</div>
+	<div class="detail">
+		<ul class="detail_m_fff">
+			<% Category.all.each do |c|%>
+			<li>
+				<%= link_to c.name, category_detail_path(c.id, c.permalink)%>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<script>
+	$(this).ready(function(){
+		var h = $("#fcategory_r").height();
+		$("#fcountry_r").css("height", h);
+	});
+</script>
+<div id="fcountry_r" class="fff">
+	<div class="f_title fff">
+		<span class="title">Quốc Gia</span>
+	</div>
+	<div class="detail">
+		<ul class="detail_m_fff">
+			<% Country.all.each do |c|%>
+			<li>
+				<%= link_to c.name, country_detail_path(c.id, c.permalink)%>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
+<div id="top_premiere_f">
+	<div class="f_title span6">
+		<span class="title">Phim đang được chiếu rạp</span>
+	</div>
+	<div class="detail">
+		<ul class="detail_m_premiere">
+			<% @m_has_shown.each do |m|%>
+			<li class="span3">
+				<div class="m_premiere_i">
+					<%= link_to  image_tag(m.image.thumb("141x176#").url), movie_detail_path(m.id, m.permalink), :title => "Thông tin phim #{m.name} (#{m.original_name})" if m.image%>
+				</div>
+				<div class="m_premiere_n">
+					<span>
+						<%= link_to  truncate_html(("#{m.name} <span class='original_name'>(#{m.original_name})</span>").to_s.html_safe, :length => 40, :separation => " "), movie_detail_path(m.id, m.permalink), :style=>"font-weight:bold;", :title => "Thông tin phim #{m.name} (#{m.original_name})"%>
+					</span>
+				</div>
+			</li>
+			<% end %>
+			<div class="more" style="margin-left:5px; width: 100%;">
+				<%= link_to "Xem tất cả", m_has_shown_path%>
+			</div>
+		</ul>
+	</div>
+</div>
+<div id="top_review_movie">
+	<div class="f_title span6">
+		<span class="title">Phim điện ảnh xem nhiều</span>
+	</div>
+	<div class="detail">
+		<ul class="detail_movie">
+			<% @t_movie.each do |m|%>
+			<li>
+				<%= link_to  ("#{m.name}<span class='original_name'>(#{m.original_name})</span>").to_s.html_safe, movie_detail_path(m.id, m.permalink)%>
+			</li>
+			<% end %>
+			<div class="more">
+				<%= link_to "Xem tất cả", top_review_movie_path%>
+			</div>
+		</ul>
+	</div>
+</div>
+<div id="top_review_tv">
+	<div class="f_title span6">
+		<span class="title">Phim bộ được xem nhiều</span>
+	</div>
+	<div class="detail">
+		<ul class="detail_movie">
+			<% @t_tv.each do |m|%>
+			<li>
+				<%= link_to  ("#{m.name}
+				<span class='original_name'>(#{m.original_name})</span>").to_s.html_safe, movie_detail_path(m.id, m.permalink)%>
+			</li>
+			<% end %>
+			<div class="more">
+				<%= link_to "Xem tất cả", top_review_tv_path%>
+			</div>
+		</ul>
+	</div>
+</div>

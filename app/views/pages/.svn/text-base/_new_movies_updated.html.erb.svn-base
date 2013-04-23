@@ -1,0 +1,10 @@
+<ul class="new_m_fmiddle">
+	<%new_movies_updated.each do |nm|%>
+	<li>
+		<%= link_to image_tag(nm.image.thumb("141x200#").url), movie_detail_path(nm.id, nm.permalink), :title => "Thông tin phim #{nm.name} (#{nm.original_name})" if nm.image%>
+		<br />
+		<%= link_to truncate_html((("#{nm.name}
+		<span class='original_name'>(#{nm.original_name})</span>").to_s), :length => 55, :separation => " "), movie_detail_path(nm.id, nm.permalink), :title => "Thông tin phim #{nm.name} (#{nm.original_name})"%>
+	</li>
+	<% end %>
+</ul>

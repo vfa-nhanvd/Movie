@@ -1,0 +1,130 @@
+<div class="bs-docs-example">
+ <div class="movie_detail_s_n">
+  <table border="0" cellspacing="0" cellpadding="0">
+   <tbody>
+    <tr>
+     <th>Tên</th>
+     <td><%= @admin_movie.name%> - <%= link_to "Xem trực tiếp", movie_detail_path(@admin_movie.id, @admin_movie.permalink), :target => "_blank"%></td>
+    </tr>
+    <tr>
+     <th>Tên gốc</th>
+     <td><%= @admin_movie.original_name%></td>
+    </tr>
+    <tr>
+     <th>Đạo diễn</th>
+     <td>
+      <% @admin_movie.directors.each_with_index do |ad, index|%>
+        <% if index == @admin_movie.directors.count - 1 then%>
+          <%= ad.name%>
+        <% else %>
+          <%= ad.name%>,
+        <% end %>
+      <% end %>
+     </td>
+    </tr>
+    <tr>
+     <th>Diễn viên</th>
+     <td>
+      <% @admin_movie.actors.each_with_index do |aa, index|%>
+        <% if index == @admin_movie.actors.count - 1 then%>
+          <%= aa.name%>
+        <% else %>
+          <%= aa.name%>,
+        <% end %>
+      <% end %>
+     </td>
+    </tr>
+    <tr>
+     <th>Thể loại</th>
+     <td>
+      <% @admin_movie.categories.each_with_index do |ac, index|%>
+        <% if index == @admin_movie.categories.count - 1 then%>
+          <%= ac.name%>
+        <% else %>
+          <%= ac.name%>,
+        <% end %>
+      <% end %>
+     </td>
+    </tr>
+    <tr>
+     <th>Server</th>
+     <td>
+      <% @admin_movie.servers.each_with_index do |as, index|%>
+        <% if index == @admin_movie.servers.count - 1 then%>
+          <%= as.name%>
+        <% else %>
+          <%= as.name%>,
+        <% end %>
+      <% end %>
+     </td>
+    </tr>
+    <tr>
+     <th>Quốc gia</th>
+     <td><%= @admin_movie.country.name if @admin_movie.country%></td>
+    </tr>
+    <tr>
+     <th>Hãng sản xuất</th>
+     <td><%= @admin_movie.movie_maker.name if @admin_movie.movie_maker%></td>
+    </tr>
+    <tr>
+     <th>Ngày phát hành</th>
+     <td><%= @admin_movie.release_date%></td>
+    </tr>
+    <tr>
+     <th>Ngày công chiếu</th>
+     <td><%= @admin_movie.premiere_date%></td>
+    </tr>
+    <tr>
+     <th>Trailer</th>
+     <td>
+       <div class="movie_frame">
+       <% if @admin_movie.id_media != nil && @admin_movie.id_media != ""%>
+       <iframe type="text/html" width="620" height="385" src="http://www.youtube.com/embed/<%=@admin_movie.id_media if @admin_movie.id_media%>?autoplay=1&showinfo=0&modestbranding=1&rel=0" frameborder="0">
+       </iframe>
+       <% else %>
+       <object width="620" height="385"><param name="movie" value="<%= @admin_movie.link_trailer%>"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="<%= @admin_movie.link_trailer%>" type="application/x-shockwave-flash" allowscriptaccess="always" autoplay="true" allowfullscreen="true" width="620" height="385"></object>
+       <% end %>
+      </div>
+     </td>
+    </tr>
+    <tr>
+     <th>Độ dài</th>
+     <td><%= @admin_movie.length%></td>
+    </tr>
+    <tr>
+     <th>Phân loại</th>
+     <td><%= Movie::Kind[@admin_movie.kind]%></td>
+    </tr>
+    <tr>
+     <th>Hot</th>
+     <td><%= @admin_movie.hot%></td>
+    </tr>
+    <tr>
+     <th>Đang chiếu rạp</th>
+     <td><%= @admin_movie.has_shown%></td>
+    </tr>
+    <tr>
+     <th>Image</th>
+     <td>
+      <%= image_tag(@admin_movie.image.thumb("150x150#").url) if @admin_movie.image%>
+     </td>
+    </tr>
+    <tr>
+     <th>Permalink</th>
+     <td><%= @admin_movie.permalink%></td>
+    </tr>
+    <tr>
+     <th>Thông tin</th>
+     <td><%= @admin_movie.info.html_safe%></td>
+    </tr>
+    <tr>
+     <td></td>
+     <td>
+      <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_movie_path(@admin_movie), :title => "Sửa"%> | 
+      <%= link_to image_tag("#{asset_path('action_back.png')}"), admin_movies_path, :title => "Về trang chủ"%>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</div>

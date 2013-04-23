@@ -1,0 +1,39 @@
+<div class="bs-docs-example">
+ <form class="form-search i_form_search">
+   <input type="text" class="input-medium search-query i_detail_backend_s">
+   <button type="submit" class="btn">Search</button>
+ </form>
+ <div class="new_new">
+   <%= link_to "Thêm mới", new_admin_artist_path, :class => "btn btn-success"%>
+ </div>
+ <table class="table">
+  <thead>
+   <tr>
+    <th>#</th>
+    <th>Tên nghệ sĩ</th>
+    <th>Phân Loại</th>
+    <th>Quốc Gia</th>
+    <th>Hot</th>
+    <th>Avatar</th>
+    <th>Action</th>
+   </tr>
+  </thead>
+  <% @admin_artists.each do |aa|%>
+  <tbody>
+   <tr class="<%= aa.id % 2 == 0 ? 'success': ''%>">
+    <td><%= aa.id%></td>
+    <td><%= aa.name%></td>
+    <td><%= Artist::Kind[aa.kind]%></td>
+    <td><%= aa.country.name if aa.country%></td>
+    <td><%= aa.hot%></td>
+    <td><%= image_tag(aa.avatar.thumb("150x150#").url) if aa.avatar%></td>
+    <td>
+     <%= link_to image_tag("#{asset_path('action_view.png')}"), admin_artist_path(aa), :title => "Chi tiết nghệ sĩ"%>
+     <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_artist_path(aa), :title => "Sửa"%>
+     <%= link_to image_tag("#{asset_path('action_delete.png')}"), admin_artist_path(aa), :confirm => "Bạn muốn xóa nghệ sĩ này?!", :method => :delete, :title => "Xóa"%>
+    </td>
+   </tr>
+  </tbody>
+  <% end %>
+ </table>
+</div>

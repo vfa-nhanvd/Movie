@@ -1,0 +1,43 @@
+<div id="hot_movie">
+	<div class="f_title span11">
+		<span class="title">Phim hot</span>
+	</div>
+	<div class="detail">
+		<%= render :partial => "/pages/new_movies_updated", :object => @hot_movies%>
+		<div class="span11 fl">
+			<div class="more mmid">
+				<%= link_to "Xem tất cả", m_hot_path%>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="new_movie_updated">
+	<div class="f_title span11">
+		<span class="title">Phim điện ảnh mới cập nhật</span>
+	</div>
+	<div class="detail">
+		<%= render :partial => "/pages/new_movies_updated", :object => @new_movies%>
+		<div class="m_fpaginate">
+		</div>
+	</div>
+	<div class="span11 fl">
+		<div class="more mmid">
+			<%= link_to "Xem tất cả", ms_new_updated_path%>
+		</div>
+	</div>
+</div>
+<div id="new_tv_updated">
+	<div class="f_title span11">
+		<span class="title">Phim bộ mới cập nhật</span>
+	</div>
+	<div class="detail">
+		<%= render :partial => "/pages/new_movies_updated", :object => @new_tv%>
+		<div class="m_fpaginate">
+		</div>
+	</div>
+	<div class="span11 fl">
+		<div class="more mmid">
+			<%= link_to "Xem tất cả", tv_new_updated_path%>
+		</div>
+	</div>
+</div>

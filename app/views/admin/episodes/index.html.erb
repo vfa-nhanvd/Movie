@@ -1,0 +1,37 @@
+<div class="bs-docs-example">
+ <form class="form-search i_form_search">
+   <input type="text" class="input-medium search-query i_detail_backend_s">
+   <button type="submit" class="btn">Search</button>
+ </form>
+ <div class="new_new">
+   <%= link_to "Thêm mới", new_admin_episode_path, :class => "btn btn-success"%>
+ </div>
+ <table class="table">
+  <thead>
+   <tr>
+    <th>#</th>
+    <th>Tên tập phim</th>
+    <th>Thuộc phim</th>
+    <th>Thuộc server</th>
+    <th>Link</th>
+    <th>Action</th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @admin_episodes.each do |ae|%>
+   <tr class="<%= ae.id % 2 == 0 ? 'success': ''%>">
+    <td><%= ae.id%></td>
+    <td><%= link_to ae.name, episode_detail_path(ae.id, ae.permalink), :title => "Xem trực tiếp tập phim", :target => "_blank"%></td>
+    <td><%= link_to ae.movie.name, admin_movie_path(ae.movie_id), :title => "Xem chi tiết phim", :target => "_blank" if ae.movie %></td>
+    <td><%= ae.server.name if ae.server%></td>
+    <td><%= ae.link%></td>
+    <td>
+     <%= link_to image_tag("#{asset_path('action_view.png')}"), admin_episode_path(ae), :title => "Chi tiết tập phim"%>
+     <%= link_to image_tag("#{asset_path('action_edit.png')}"), edit_admin_episode_path(ae), :title => "Sửa"%>
+     <%= link_to image_tag("#{asset_path('action_delete.png')}"), admin_episode_path(ae), :confirm => "Bạn muốn xóa tập phim này?!", :method => :delete, :title => "Xóa"%>
+    </td>
+   </tr>
+   <% end %>
+  </tbody>
+ </table>
+</div>

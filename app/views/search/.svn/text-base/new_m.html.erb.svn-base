@@ -1,0 +1,9 @@
+<div class="f_title span11">
+	<span class="title"><span class="f_top_view">Danh sách phim mới được cập nhật</span></span>
+</div>
+<div class="detail">
+	<%= render :partial => "/pages/new_movies_updated", :object => @nm%>
+	<div class="mmid">
+		<%= will_paginate @nm, :param_name => "trang"%>
+	</div>
+</div>
