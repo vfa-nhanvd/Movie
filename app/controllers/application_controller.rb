@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def get_partial
     @notifications = Notification.order("created_at desc").first(10)
-    @m_has_shown = Movie.where(:has_shown => true).order("random ()").first(6)
+    @m_has_shown = Movie.where(:has_shown => true).order("rand ()").first(6)
     @t_movie = Movie.where(:kind => "a").order("plays desc").first(10)
     @t_tv = Movie.where(:kind => "b").order("plays desc").first(10)
   end
