@@ -4,11 +4,13 @@ ActiveRecord::Base.establish_connection
 ActiveRecord::Base.connection.tables.each do |table|
   next if table == 'schema_migrations'
   # MySQL and PostgreSQL
-  # ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
+   ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
   # SQLite
-  ActiveRecord::Base.connection.execute("DELETE FROM #{table}")
+  # ActiveRecord::Base.connection.execute("DELETE FROM #{table}")
 end
 
+User.create(:email => 'niick7@yahoo.com', :password => 'tsuunamii', :password_confirmation => 'tsuunamii', :role => "a")
+User.create(:email => 'phuoc_nguyen@yahoo.com', :password => '3M-keepitup', :password_confirmation => '3M-keepitup', :role => "a")
 Country.create(:name => "Mỹ")
 Country.create(:name => "Trung Quốc - Đài Loan")
 Country.create(:name => "Hồng Kông")
