@@ -10,7 +10,7 @@ ActiveRecord::Base.connection.tables.each do |table|
 end
 
 User.create(:email => 'niick7@yahoo.com', :password => 'tsuunamii', :password_confirmation => 'tsuunamii', :role => "a")
-User.create(:email => 'phuoc_nguyen@yahoo.com', :password => '3M-keepitup', :password_confirmation => '3M-keepitup', :role => "a")
+User.create(:email => 'sura18com@yahoo.com', :password => '3M-keepitup', :password_confirmation => '3M-keepitup', :role => "a")
 Country.create(:name => "Mỹ")
 Country.create(:name => "Trung Quốc - Đài Loan")
 Country.create(:name => "Hồng Kông")
