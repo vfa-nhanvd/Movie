@@ -74,7 +74,7 @@
 		<br />
 	</div>
 	<div class="action_view span5">
-			<%= link_to image_tag("#{asset_path('view_online.png')}"), episode_detail_path(@e1.id, @e1.permalink)%>
+			<%= link_to image_tag("#{asset_path('view_online.png')}"), episode_detail_path(@e1.id, @e1.permalink) if @e1%>
 			<%= link_to image_tag("#{asset_path('view_trailer.png')}"), movie_trailer_path(@movie.id, @movie.permalink)%>
 	</div>
 	<div class="minfo_quote">
