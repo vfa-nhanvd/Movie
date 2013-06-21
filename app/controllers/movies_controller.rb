@@ -17,6 +17,6 @@ class MoviesController < ApplicationController
   
   def trailer
     @movie = Movie.find(params[:id])
-    @movie_random = Movie.where(:hot => true).order("random()").limit(12)
+    @movie_random = Movie.where(:hot => true).order("rand()").limit(12)
   end
 end
