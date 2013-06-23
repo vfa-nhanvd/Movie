@@ -10,7 +10,7 @@ class EpisodesController < ApplicationController
         @movie.save
       end
     end
-    @movie_random = Movie.where(:hot => true).order("random()").limit(12)
+    @movie_random = Movie.where(:hot => true).order("ran()").limit(12)
   end
   
 end
