@@ -1,4 +1,4 @@
-<div class="f_title span11">
+﻿<div class="f_title span11">
 	<span class="title">
 		<span class="fname_s"><%= @episode.movie.name%></span> <span class="foriginal_name_s">(<%=@episode.movie.original_name%>)</span>
 	</span>
@@ -36,9 +36,9 @@
 				<%@movie.servers.each do |ms|%>	
 				<li><span class="server_name">+ Server <%= ms.name%>: </span>
 					<span class="e_stt">
-						<% if ms.episodes.count > 0%>
+						<% if @movie.episodes.count > 0%>
 							<% s = 0%>
-							<%ms.episodes.each do |mse|%>
+							<%@movie.episodes.each do |mse|%>
 							<% s+= 1%>
 								<span class="epid_<%=mse.id%>">
 									<%= link_to_unless_current(s, episode_detail_path(mse.id, mse.permalink)) do
