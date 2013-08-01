@@ -7,7 +7,7 @@ class Category < ActiveRecord::Base
   has_many :movies, :through => :movie_categories
   
   #Accessible
-  attr_accessible :name
+  attr_accessible :name, :hot
   
   #Validation
   validates_presence_of :name, :message => "không được bỏ trống"
